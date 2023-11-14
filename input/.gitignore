@@ -1,0 +1,2 @@
+*.csv
+!job_search_data_template.csv
