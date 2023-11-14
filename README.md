@@ -1,7 +1,7 @@
 ## About the Code
 Python script for cleaning up formatting of job application data sheet and calculating duration between events.  The script takes a raw .csv file as an input and outputs a cleaned up .csv file that can be used to import and analyze with the user's tool of choice.
 
-## Python libraries needed:
+## Python libraries needed
 pandas
 
 ## Usage
