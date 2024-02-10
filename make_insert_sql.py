@@ -39,7 +39,6 @@ insert_sql = "INSERT INTO `applications_{file_date}` (company, job_title, listed
 df_raw = pandas.read_csv('output/clean_job_search_data_' + args.inputfiledate + '.csv')
 df = df_raw.replace(np.nan, 'null', regex=True)
 
-print(df.iloc[1])
 for index, row in df.iterrows():
     if row['Company'] == "null":
         break
@@ -47,7 +46,6 @@ for index, row in df.iterrows():
     insert_sql = insert_sql + "'" + str(row['Company']) + "', "
     insert_sql = insert_sql + "'" + str(row['Job Title']) + "', " 
     insert_sql = insert_sql + str(row['Listed Top Pay']) + ", "
-    #insert_sql = insert_sql + "'" + str(row['Discovered']) + "', "
     insert_sql = insert_sql + handle_null(str(row['Discovered']))
     insert_sql = insert_sql + handle_null(str(row['Posted']))
     insert_sql = insert_sql + handle_null(str(row['Applied']))
@@ -69,6 +67,3 @@ outfile = open(outfilename, 'w')
 outfile.write(create_sql)
 outfile.write(insert_sql)
 outfile.close()
-
-#print(create_sql)
-#print(insert_sql)
